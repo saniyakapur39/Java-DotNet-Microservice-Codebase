@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  sqlexpress:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "Password!23"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "Password!23", "-Q", "SELECT 1"]
+      interval: 10s
+      retries: 5
+  enrollment-report-service:
+    build: .
+    depends_on:
+      sqlexpress:
+        condition: service_healthy
+    ports:
+      - "8091:8091"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:sqlserver://sqlexpress:1433;databaseName=enrollmentdb;encrypt=true;trustServerCertificate=true
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: Password!23
