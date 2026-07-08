@@ -1,0 +1,24 @@
+server:
+  port: 8091
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://sqlexpress:1433;databaseName=enrollmentdb;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: Password!23
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate.format_sql: true
+
+enrollment-report:
+  input-file-path: /data/ENRERR-FILE.txt
+  output-file-path: /output/enrollment-error-report.txt
+  max-lines-per-page: 55
+
+logging:
+  level:
+    com.hcas: INFO
