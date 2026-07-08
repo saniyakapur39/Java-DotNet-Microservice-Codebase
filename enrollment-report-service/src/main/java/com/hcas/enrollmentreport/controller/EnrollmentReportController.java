@@ -2,7 +2,7 @@ package com.hcas.enrollmentreport.controller;
 
 import com.hcas.enrollmentreport.dto.ReportRunDto;
 import com.hcas.enrollmentreport.service.EnrollmentReportService;
-import lombok.RequiredArgsConstructor;
+lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
