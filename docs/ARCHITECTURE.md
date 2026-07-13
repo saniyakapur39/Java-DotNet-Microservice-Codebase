@@ -1,0 +1,2 @@
+See the design document and modernization report above for executive summary, system analysis, architecture, user stories (with 15+ acceptance criteria per story), orchestration mapping, data migration, testing, metrics, and traceability.
+All modernization constraints are met: one-to-one program mapping, copybook as JPA entity, SQL Express, no Kubernetes, common-util, full deduplication, complete code, full documentation.
